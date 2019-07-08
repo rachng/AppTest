@@ -22,6 +22,8 @@
 		8EB6D59822D26FF20032F67A /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6D59722D26FF20032F67A /* TableViewDataSource.swift */; };
 		8EB6D59A22D271BE0032F67A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6D59922D271BE0032F67A /* Constants.swift */; };
 		8EB6D59C22D273250032F67A /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6D59B22D273250032F67A /* NewsListViewModel.swift */; };
+		8EB6D5A722D2B5990032F67A /* HasReadArticle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6D5A522D2B5990032F67A /* HasReadArticle+CoreDataClass.swift */; };
+		8EB6D5A822D2B5990032F67A /* HasReadArticle+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6D5A622D2B5990032F67A /* HasReadArticle+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		8EB6D59722D26FF20032F67A /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		8EB6D59922D271BE0032F67A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8EB6D59B22D273250032F67A /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
+		8EB6D5A522D2B5990032F67A /* HasReadArticle+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HasReadArticle+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8EB6D5A622D2B5990032F67A /* HasReadArticle+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HasReadArticle+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				8E633C0D22D25CC2007504E7 /* LaunchScreen.storyboard */,
 				8E633C1022D25CC2007504E7 /* Info.plist */,
 				8E633C0822D25CBB007504E7 /* AppTest.xcdatamodeld */,
+				8EB6D5A522D2B5990032F67A /* HasReadArticle+CoreDataClass.swift */,
+				8EB6D5A622D2B5990032F67A /* HasReadArticle+CoreDataProperties.swift */,
 			);
 			path = AppTest;
 			sourceTree = "<group>";
@@ -201,8 +207,10 @@
 				8EB6D59A22D271BE0032F67A /* Constants.swift in Sources */,
 				8E633C0A22D25CBB007504E7 /* AppTest.xcdatamodeld in Sources */,
 				8E34A67C22D260BC001080B1 /* NewsTableViewController.swift in Sources */,
+				8EB6D5A722D2B5990032F67A /* HasReadArticle+CoreDataClass.swift in Sources */,
 				8EB6D59622D26DC30032F67A /* HistoryTableViewCell.swift in Sources */,
 				8E34A68722D26165001080B1 /* ArticleViewController.swift in Sources */,
+				8EB6D5A822D2B5990032F67A /* HasReadArticle+CoreDataProperties.swift in Sources */,
 				8EB6D59422D26DB40032F67A /* HistoryTableViewController.swift in Sources */,
 				8EB6D59C22D273250032F67A /* NewsListViewModel.swift in Sources */,
 				8EB6D59822D26FF20032F67A /* TableViewDataSource.swift in Sources */,

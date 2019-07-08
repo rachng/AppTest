@@ -5,12 +5,16 @@
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dscp" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="publishedAt" attributeType="String" syncable="YES"/>
-        <attribute name="source" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <attribute name="url" attributeType="String" syncable="YES"/>
         <attribute name="urlToImage" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="HasReadArticle" representedClassName=".HasReadArticle" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Article" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Article" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="HasReadArticle" positionX="-54" positionY="54" width="128" height="75"/>
     </elements>
 </model>

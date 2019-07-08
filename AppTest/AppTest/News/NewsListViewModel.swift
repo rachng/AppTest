@@ -6,7 +6,7 @@
 //  Copyright © 2019 rachelng. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NewsListViewModel : NSObject {
     
@@ -32,9 +32,9 @@ class NewsListViewModel : NSObject {
     }
     
     func populateArticles() {
-        
         self.apiManager.loadArticles { [unowned self] articles in
             self.articleViewModels = articles.compactMap(ArticleViewModel.init)
+            
         }
     }
     
@@ -45,7 +45,6 @@ class NewsListViewModel : NSObject {
 
 class ArticleViewModel : NSObject {
     
-    var source: JSONDictionary?
     var author: String?
     var urlToImage: String?
     var content: String?
@@ -56,7 +55,6 @@ class ArticleViewModel : NSObject {
     
     init(article: Article) {
         
-        self.source = article.source
         self.author = article.author
         self.urlToImage = article.urlToImage
         self.content = article.content

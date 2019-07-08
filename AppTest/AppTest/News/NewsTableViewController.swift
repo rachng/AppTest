@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class NewsTableViewController: UITableViewController {
     
@@ -14,10 +15,22 @@ class NewsTableViewController: UITableViewController {
     private var newsListViewModel: NewsListViewModel!
     private var dataSource: TableViewDataSource<NewsTableViewCell,ArticleViewModel>!
     
+    private var fetchedHasReadRC = NSFetchRequest<NSFetchRequestResult>(entityName:"HasReadArticle")
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var hasReadArticles:[HasReadArticle] = [HasReadArticle]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         updateUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        retrieveHasRead()
     }
     
     private func setupUI() {
@@ -33,6 +46,15 @@ class NewsTableViewController: UITableViewController {
     @objc
     func segueHistory() {
         self.navigationController?.pushViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HistoryTableViewController") as! HistoryTableViewController, animated: true)
+    }
+    
+    private func retrieveHasRead() {
+        do {
+            let result = try context.fetch(fetchedHasReadRC)
+            hasReadArticles = result as! [HasReadArticle]
+        } catch {
+            print("failed to retrieve HasReadArticle data")
+        }
     }
     
     @objc
@@ -60,8 +82,33 @@ class NewsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
+        let selectedArticle = self.newsListViewModel.article(at: indexPath.row)
+        self.articleIsRead(selectedArticle: selectedArticle)
+        
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
-        controller.article = self.newsListViewModel.article(at: indexPath.row)
+        controller.article = selectedArticle
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    private func articleIsRead(selectedArticle:ArticleViewModel) {
+        var isExisting = false
+        for article in hasReadArticles {
+            if article.title == selectedArticle.title {
+                isExisting = true
+                break
+            }
+        }
+        
+        if isExisting == false {
+            let entry = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "HasReadArticle", in: context)!, insertInto: context) as! HasReadArticle
+            entry.title = selectedArticle.title
+            entry.content = selectedArticle.content
+            
+            do {
+                try self.context.save()
+            } catch {
+                print("Save new entry for HasReadArticle has failed")
+            }
+        }
     }
 }

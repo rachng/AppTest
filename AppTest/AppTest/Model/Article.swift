@@ -10,7 +10,6 @@ import Foundation
 
 class Article {
     
-    var source: JSONDictionary?
     var author: String?
     var urlToImage: String?
     var content: String?
@@ -26,7 +25,6 @@ class Article {
             let url = dictionary["url"] as? String
         else { return nil }
         
-        self.source = dictionary["source"] as? JSONDictionary
         self.author = dictionary["author"] as? String
         self.urlToImage = dictionary["urlToImage"] as? String
         self.content = dictionary["content"] as? String
